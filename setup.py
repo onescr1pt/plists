@@ -1,7 +1,7 @@
 from distutils.core import setup
 import fnmatch
 import os.path
-from plists import version
+from pyplist import version
 
 
 def pdir():
@@ -78,15 +78,15 @@ def findPackages(path, dataExclude=[]):
 # for scheme in INSTALL_SCHEMES.values(): scheme['data']=scheme['purelib']
 
 print("PDIR: ", pdir(), os.listdir(pdir()))
-packages, package_data = findPackages("plists")
+packages, package_data = findPackages("pyplist")
 
 print("Packages: ", packages)
 print("Datafiles: ", package_data)
 
-setup(name="PLists",
+setup(name="pyplist",
       version=version.VERSION,
       description="A package for managing 'Apple PList'-files in XML-format.",
-      long_description=open(os.path.join(pdir(), "README.md")).read(),
+      long_description=open(os.path.join(pdir(), "README.rst")).read(),
       author="Sri Panyam",
       author_email="sri.panyam@gmail.com",
       maintainer="One Script",
@@ -98,5 +98,4 @@ setup(name="PLists",
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
           'Operating System :: OS Independent',
-      ]
-      )
+      ])
