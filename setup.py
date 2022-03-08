@@ -78,14 +78,14 @@ def findPackages(path, dataExclude=[]):
 # for scheme in INSTALL_SCHEMES.values(): scheme['data']=scheme['purelib']
 
 print("PDIR: ", pdir(), os.listdir(pdir()))
-packages, package_data = findPackages("plists")
+packages, package_data = findPackages("PLists")
 
 print("Packages: ", packages)
 print("Datafiles: ", package_data)
 
-setup(name="plists",
+setup(name="PLists",
       version=version.VERSION,
-      description="A package for managing 'Apple PLIST' files in XML-format.",
+      description="A package for managing 'Apple PList'-files in XML-format.",
       long_description=open(os.path.join(pdir(), "README.md")).read(),
       author="Sri Panyam",
       author_email="sri.panyam@gmail.com",
