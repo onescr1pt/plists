@@ -1,55 +1,34 @@
 
 # What is this?
 
-This is a package for reading, writing and managing [Apple plist files](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/plist.5.html).  
+This is a package for reading, writing and managing [Apple PLIST-files](https://www.unix.com/man-page/OSX/5/plist), in XML-Format, with Python 3.  
 
 # Installation
 
-```
-pip install plists
+```sh
+pip3 install PLists
 ```
 
 # Examples
 
 ## Reading plist files
 
-### Reading V1 (Old Style) plists from file
+### Reading XML-PLists from file
 
-```
-import plists
+```py
+from PLists import XMLParser
 
-obj = plists.v1parser.Parser().parseFile("path_to_file")
-
-# ... use obj as a normal python object
-```
-
-### Reading V1 (Old Style) plists from string
-
-```
-import plists
-
-obj = plists.v1parser.Parser().parse("some_loaded_string")
+obj = XMLParser.parseFile("path_to_file")
 
 # ... use obj as a normal python object
 ```
 
+### Reading XML-PLists from string
 
-### Reading XML plists from file
+```py
+from PLists import XMLParser
 
-```
-from plists import xmlparser
-
-obj = xmlparser.parseFile("path_to_file")
-
-# ... use obj as a normal python object
-```
-
-### Reading XML plists from string
-
-```
-from plists import xmlparser
-
-obj = xmlparser.parse("some_loaded_string")
+obj = XMLParser.parse("some_loaded_string")
 
 # ... use obj as a normal python object
 ```
@@ -61,37 +40,19 @@ Coming Soon
 
 ## Writing objects to plist files
 
-### Writing to Old style plists
-
-Objects can be written to old style plists with:
-
-```
-from plists import v1parser
-from plists import v1writer
-
-obj = v1parser.parseFile(<path_to_plist_file>)
-
-v1writer.write(obj, outstream, indentString, level)
-```
-
-The parameters are:
-
-* obj         -   The object being serialized
-* outstream   -   The output stream to which the object will be serialized.  If this is None, then a new string outputstream is written to and returned.
-* indentString  - Indentation string to be used.  If this value is None then no indentation or pretification is applied.  Otherwise this is used.
-* level       -   The level to start with when serializing.  Each child node is indented an extra level (if indentString is not None).
-
-### Writing to XML plists
+### Writing XML-PLists to file
 
 Objects can be written to xml plists with:
 
-```
-from plists import xmlparser
-from plists import xmlwriter
+```py
+from PLists import XMLParser
+from PLists import XMLWriter
 
-obj = xmlparser.parseFile(<path_to_plist_file>)
+obj = XMLParser.parseFile(<path_to_plist_file>)
 
-xmlwriter.write(obj, outstream, indentString, level)
+with open(<path_to_output_file>, 'wt') as outstream:
+  XMLWriter.write(obj, outstream[, indentString=None, level=0])
+  outstream.close()
 ```
 
 The parameters are:
