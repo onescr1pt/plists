@@ -85,16 +85,15 @@ print("Datafiles: ", package_data)
 
 setup(name="plists",
       version=version.VERSION,
-      description="A package for managing Apple plist files.",
+      description="A package for managing 'Apple PLIST' files in XML-format.",
       long_description=open(os.path.join(pdir(), "README.md")).read(),
       author="Sri Panyam",
       author_email="sri.panyam@gmail.com",
-      url="http://github.com/panyam/plists/",
+      maintainer="One Script",
+      maintainer_email="yyscript@pm.me",
+      url="http://github.com/onescr1pt/plists/",
       packages=packages,
       package_data=package_data,
-      install_requires=[
-          "jinja2>=2.7"
-      ],
       classifiers=[
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
