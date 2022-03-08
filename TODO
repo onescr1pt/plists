@@ -1,1 +1,1 @@
-* Implement Parser/Writer for binary formatted PLists.
+* Implement Parser/Writer for binary formatted PLists (templating from BSD 'plutil').
