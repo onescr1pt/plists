@@ -78,7 +78,7 @@ def findPackages(path, dataExclude=[]):
 # for scheme in INSTALL_SCHEMES.values(): scheme['data']=scheme['purelib']
 
 print("PDIR: ", pdir(), os.listdir(pdir()))
-packages, package_data = findPackages("PLists")
+packages, package_data = findPackages("plists")
 
 print("Packages: ", packages)
 print("Datafiles: ", package_data)
